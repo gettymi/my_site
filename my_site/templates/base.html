@@ -6,8 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}My Site{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% block css_styling %}{% endblock css_styling %}
   </head>
   <body>
+    <header id='main-navigation'>
+      <h1><a href = '{% url "blog:index" %}'>Bohdan's Blog</a></h1>
+      <nav>
+          <a href = '{% url "blog:all_posts" %}'>All Posts</a>
+      </nav>
+  
+  </header>
     {% block content %} {% endblock %}
   </body>
 </html>

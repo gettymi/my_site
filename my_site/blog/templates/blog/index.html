@@ -1,2 +1,45 @@
-{% extends "base.html" %} {% block title %}Blog page{% endblock title %} 
-{%block content %}Hello World{% endblock content %}
+{% extends "base.html" %}{% load static %}
+
+{% block title %}Blog page{% endblock title %} 
+
+
+{% block css_styling %} <link rel=stylesheet href = "{% static "blog/index.css"  %}"> 
+<link rel=stylesheet href = "{% static "blog/post.css"  %}"> 
+
+{% endblock css_styling %}
+
+
+{%block content %}
+
+<section id ='welcome'>
+    <header>
+        <img src='static/blog/images/sponsor.jpeg' alt="Bohdan - The author of this blog" >
+        <h2>Bohdan's liitle blog</h2>
+    </header>
+
+    <p>This is my blog i'm currently working on</p>
+
+</section>
+
+
+<section id='latest-posts'>
+
+    <h2>My latest posts</h2>
+
+    <ul>
+        {% for post in posts  %}
+        {% include "blog/includes/post.html" %}
+        {% endfor %}
+    </ul>
+
+</section>
+
+
+<section id='about'>
+    <h2>What do i do</h2>
+    <p>I'm studing cybersecurity and doing web developmet by Django</p>
+
+    <p>My goal is to do my job good</p>
+</section>
+
+{% endblock content %}
